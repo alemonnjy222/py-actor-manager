@@ -4,10 +4,10 @@ from app.models import Actor
 
 
 class ActorManager:
-    def __init__(self, db_name, table_name):
-        self.__connection = sqlite3.connect("db_name")
-        self.db_name = "db_name"
-        self.table_name = "table_name"
+    def __init__(self, db_name:str, table_name):
+        self.__connection = sqlite3.connect(db_name)
+        self.db_name = db_name
+        self.table_name = table_name
     def create(self, first_name, last_name):
         self.__connection.execute(
             f"INSERT INTO {self.table_name} (first_name, last_name) VALUES (?, ?)",
